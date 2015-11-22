@@ -17,4 +17,8 @@ class Product < ActiveRecord::Base
   def total    
     price.to_i + tax   
   end
+
+  def self.get_discount_threshold
+    DISCOUNT_THRESHOLD
+  end
 end
