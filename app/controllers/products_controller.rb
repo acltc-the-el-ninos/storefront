@@ -26,7 +26,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @taco = Product.create(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
+    @taco = Product.create(
+      id: params[:id],
+      name: params[:name],
+      price: params[:price],
+      description: params[:description],
+      rating: params[:rating],
+      user_id: current_user.id
+    )
     flash[:success] = "Taco made!"
     redirect_to "/products/#{@taco.id}"
   end

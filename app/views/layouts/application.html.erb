@@ -35,10 +35,10 @@
             <li><a href="/products?sort=price&sort_order=asc">Sort by price (low to high)</a></li>
             <li><a href="/products?sort=price&sort_order=desc">Sort by price (high to low)</a></li>
             <li><a href="/products?discount=true">Discount items</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="/users/sign_up">Sign Up</a></li>
+            <li><a href="/users/sign_in">Sign In</a></li>
+            <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
           </ul>
         </li>
       </ul>
@@ -52,6 +52,8 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
   </div>
   <% end %>
+
+<%= current_user.email if current_user %>
 <%= yield %>
 </div>
 </body>

@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
+  belongs_to :user
   
   SALES_TAX = 0.09   
   DISCOUNT_THRESHOLD = 50    
