@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  belongs_to :supplier
+  
   SALES_TAX = 0.09   
   DISCOUNT_THRESHOLD = 50    
    
