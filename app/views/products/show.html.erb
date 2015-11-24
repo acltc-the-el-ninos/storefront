@@ -7,7 +7,9 @@
             <p>Price: <%= @taco.price %></p>
             <p>Tax: <%= @taco.tax %></p>   
             <p>Total: <%= @taco.total %></p>
-            <img src="<%= @taco.image %>" alt="<%= @taco.name %>" class="img-responsive">
+            <% @taco.images.each do |image_object| %>
+              <img src="<%= image_object.path %>" alt="<%= @taco.name %>" class="img-responsive">
+            <% end %>
             <p>Description: <%= @taco.description %></p>
             <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
             <%= link_to "Edit", "/products/#{@taco.id}/edit", class: "btn btn-success" %>
