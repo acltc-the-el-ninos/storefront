@@ -10,8 +10,10 @@
             
             <%= form_tag '/orders', method: :post do %>
               <div>
-                <%= label_tag :form_input_quantity %>
+                <%= label_tag :form_input_quantity, "Quantity: " %>
                 <%= text_field_tag :form_input_quantity %>
+                <%= label_tag :form_input_product_id, "Please enter the number at the end of the url in your browser: " %>
+                <%= text_field_tag :form_input_product_id %>
                 <%= submit_tag "Place order!" %>
               </div>
             <% end %>
