@@ -12,8 +12,7 @@
               <div>
                 <%= label_tag :form_input_quantity, "Quantity: " %>
                 <%= text_field_tag :form_input_quantity %>
-                <%= label_tag :form_input_product_id, "Please don't change this number: " %>
-                <%= text_field_tag :form_input_product_id, @taco.id %>
+                <%= hidden_field_tag :form_input_product_id, @taco.id %>
                 <%= submit_tag "Place order!" %>
               </div>
             <% end %>
