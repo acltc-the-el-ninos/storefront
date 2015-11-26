@@ -7,6 +7,15 @@
             <p>Price: <%= number_to_currency(@taco.price) %></p>
             <p>Tax: <%= number_to_currency(@taco.tax) %></p>   
             <p>Total: <%= number_to_currency(@taco.total) %></p>
+            
+            <%= form_tag '/orders', method: :post do %>
+              <div>
+                <%= label_tag :quantity %>
+                <%= text_field_tag :quantity %>
+                <%= submit_tag "Place order!" %>
+              </div>
+            <% end %>
+    
             <% @taco.images.each do |image_object| %>
               <img src="<%= image_object.path %>" alt="<%= @taco.name %>" class="img-responsive">
             <% end %>
