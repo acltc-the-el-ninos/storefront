@@ -13,7 +13,7 @@
         <div class="col-sm-4">
           <div class="taco_single">
             <h2><%= taco.name %></h2>
-            <h3><%= taco.supplier.name %></h3>
+            <h3><%= taco.supplier.name if taco.supplier %></h3>
             <p>Price: <%= taco.price %></p>
             <a href="/products/<%= taco.id %>" title="View Taco"><img src="<%= taco.images.first.path if taco.images.first %>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
             <p>Description: <%= taco.description %></p>

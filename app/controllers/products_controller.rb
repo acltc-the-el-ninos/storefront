@@ -45,7 +45,11 @@ class ProductsController < ApplicationController
 
   def update
     @taco = Product.find_by(id: params[:id])
-    @taco.update(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
+    @taco.update(
+      name: params[:name],
+      price: params[:price],
+      description: params[:description]
+    )
     flash[:success] = "This taco has been updated!"
     redirect_to "/products/#{@taco.id}"
   end

@@ -4,9 +4,9 @@
         <div class="taco_single">
             <h2><%= @taco.name %></h2>
             <p><%= @taco.sale_message %></p>   
-            <p>Price: <%= @taco.price %></p>
-            <p>Tax: <%= @taco.tax %></p>   
-            <p>Total: <%= @taco.total %></p>
+            <p>Price: <%= number_to_currency(@taco.price) %></p>
+            <p>Tax: <%= number_to_currency(@taco.tax) %></p>   
+            <p>Total: <%= number_to_currency(@taco.total) %></p>
             <% @taco.images.each do |image_object| %>
               <img src="<%= image_object.path %>" alt="<%= @taco.name %>" class="img-responsive">
             <% end %>
