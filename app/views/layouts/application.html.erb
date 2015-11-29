@@ -36,7 +36,9 @@
             <li><a href="/products?sort=price&sort_order=desc">Sort by price (high to low)</a></li>
             <li><a href="/products?discount=true">Discount items</a></li>
             <li class="divider"></li>
-            <li><a href="/products?category=Pork">Pork</a></li>
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
+            <% end %>
             <li class="divider"></li>
             <li><a href="/users/sign_up">Sign Up</a></li>
             <li><a href="/users/sign_in">Sign In</a></li>
