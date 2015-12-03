@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
   has_many :orders
   has_many :categorized_products
   has_many :categories, through: :categorized_products
+  has_many :carted_products
+  has_many :orders, through: :carted_products
   
   SALES_TAX = 0.09   
   DISCOUNT_THRESHOLD = 50    
