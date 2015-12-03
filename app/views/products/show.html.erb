@@ -9,12 +9,12 @@
             <p>Tax: <%= number_to_currency(@taco.tax) %></p>   
             <p>Total: <%= number_to_currency(@taco.total) %></p>
             
-            <%= form_tag '/orders', method: :post do %>
+            <%= form_tag '/carted_products', method: :post do %>
               <div>
                 <%= label_tag :form_input_quantity, "Quantity: " %>
                 <%= text_field_tag :form_input_quantity %>
                 <%= hidden_field_tag :form_input_product_id, @taco.id %>
-                <%= submit_tag "Place order!" %>
+                <%= submit_tag "Add to cart!" %>
               </div>
             <% end %>
 
