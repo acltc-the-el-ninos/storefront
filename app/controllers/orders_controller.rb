@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
       tax: tax,
       total: total
     )
+
+    @carted_products.update_all(status: "purchased", order_id: order.id)
+
     redirect_to "/orders/#{order.id}"
   end
 
