@@ -1,4 +1,8 @@
 class CartedProductsController < ApplicationController
+  def index
+    @carted_products = current_user.carted_products.where(status: "carted")
+  end
+
   def create
     user_id = current_user.id
     product_id = params[:form_input_product_id]
