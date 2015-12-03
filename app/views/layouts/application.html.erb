@@ -32,7 +32,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><span class="glyphicon glyphicon-shopping-cart"><%= link_to "Shopping cart", "/carted_products" %></span></li>
+            <li><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
             <li class="divider"></li>
             <li><a href="/products?sort=price&sort_order=asc">Sort by price (low to high)</a></li>
             <li><a href="/products?sort=price&sort_order=desc">Sort by price (high to low)</a></li>
@@ -53,14 +53,12 @@
 </nav>
 </header>
 <div class="container-fluid">
-<% flash.each do |name, message| %>
-  <div class="alert alert-<%= name %> alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
-  </div>
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+    </div>
   <% end %>
-
-<%= current_user.email if current_user %>
-<%= yield %>
+  <%= yield %>
 </div>
 </body>
 </html>
