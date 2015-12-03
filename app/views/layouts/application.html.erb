@@ -32,6 +32,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span></a>
           <ul class="dropdown-menu" role="menu">
+            <li><span class="glyphicon glyphicon-shopping-cart"><%= link_to "Shopping cart", "/carted_products" %></span></li>
+            <li class="divider"></li>
             <li><a href="/products?sort=price&sort_order=asc">Sort by price (low to high)</a></li>
             <li><a href="/products?sort=price&sort_order=desc">Sort by price (high to low)</a></li>
             <li><a href="/products?discount=true">Discount items</a></li>
