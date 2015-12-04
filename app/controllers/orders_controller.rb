@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     order = Order.create(user_id: current_user.id)
     @carted_products.update_all(status: "purchased", order_id: order.id)
     order.calculate_totals
+    session[:cart_count] = nil
     redirect_to "/orders/#{order.id}"
   end
 
