@@ -25,7 +25,9 @@ class ProductsController < ApplicationController
   end
 
   def new
-    render :new
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
   end
 
   def create

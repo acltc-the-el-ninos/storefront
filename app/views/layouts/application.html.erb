@@ -32,6 +32,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span></a>
           <ul class="dropdown-menu" role="menu">
+            <% if current_user && current_user.admin %>
+              <li><%= link_to "Add New Recipe", "products/new" %></li>
+              <li class="divider"></li>
+            <% end %>
             <li><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart (<%= @cart_count %>)</a></li>
             <li class="divider"></li>
             <li><a href="/products?sort=price&sort_order=asc">Sort by price (low to high)</a></li>
