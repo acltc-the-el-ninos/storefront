@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :search]
 
   def index
+    # current_user
     @tacos = Product.all
     if params[:sort] && params[:sort_order]
       @tacos = Product.order(params[:sort] => params[:sort_order])
@@ -25,9 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-    unless current_user && current_user.admin
-      redirect_to "/"
-    end
   end
 
   def create
@@ -70,5 +69,13 @@ class ProductsController < ApplicationController
     search_term = params[:input_search]
     @tacos = Product.where("name LIKE ?", "%#{search_term}%")
     render :index
+  end
+
+  private
+
+  def authenticate_admin!
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
   end
 end
