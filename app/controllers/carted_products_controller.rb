@@ -1,5 +1,7 @@
 class CartedProductsController < ApplicationController
   def index
+    calculate_cart_count
+    
     if current_user && current_user.carted_products.where(status: "carted").any?
       @carted_products = current_user.carted_products.where(status: "carted")
     else
