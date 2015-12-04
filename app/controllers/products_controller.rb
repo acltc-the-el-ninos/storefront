@@ -27,10 +27,11 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @taco = Product.new
   end
 
   def create
-    @taco = Product.create(
+    @taco = Product.new(
       id: params[:id],
       name: params[:name],
       price: params[:price],
@@ -38,8 +39,12 @@ class ProductsController < ApplicationController
       rating: params[:rating],
       user_id: current_user.id
     )
-    flash[:success] = "Taco made!"
-    redirect_to "/products/#{@taco.id}"
+    if @taco.save
+      flash[:success] = "Taco made!"
+      redirect_to "/products/#{@taco.id}"
+    else
+      render :new
+    end
   end
 
   def edit
