@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204002708) do
+ActiveRecord::Schema.define(version: 20151206171711) do
 
   create_table "carted_products", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -67,8 +67,9 @@ ActiveRecord::Schema.define(version: 20151204002708) do
     t.string   "name",       limit: 255
     t.string   "email",      limit: 255
     t.string   "phone",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "active",     limit: 1,   default: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @suppliers = Supplier.all
   end
@@ -28,7 +30,7 @@ class SuppliersController < ApplicationController
 
   def destroy
     @supplier = Supplier.find_by(id: params[:id])
-    @supplier.destroy
+    @supplier.update(active: false)
     redirect_to "/suppliers"
   end
 end

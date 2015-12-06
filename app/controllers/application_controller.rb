@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :calculate_cart_count
 
+  private
+
   def calculate_cart_count
     if current_user
       if session[:cart_count]
@@ -15,6 +17,12 @@ class ApplicationController < ActionController::Base
       end
     else
       @cart_count = 0
+    end
+  end
+
+  def authenticate_admin!
+    unless current_user && current_user.admin
+      redirect_to "/"
     end
   end
 end
