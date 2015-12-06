@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
 
   def new
     @taco = Product.new
+    @suppliers = Supplier.where(active: true)
   end
 
   def create
@@ -37,7 +38,8 @@ class ProductsController < ApplicationController
       price: params[:price],
       description: params[:description],
       rating: params[:rating],
-      user_id: current_user.id
+      user_id: current_user.id,
+      supplier_id: params[:supplier][:supplier_id]
     )
     if @taco.save
       flash[:success] = "Taco made!"
