@@ -11,6 +11,15 @@ Rails.application.routes.draw do
   get "/products/:id" => 'products#show'
   post "/search" => 'products#search'
 
+  get "/suppliers" => 'suppliers#index'
+  get "/suppliers/new" => 'suppliers#new'
+  post "/suppliers" => 'suppliers#create'
+  get "/suppliers/:id/edit" => 'suppliers#edit'
+  delete "/suppliers/:id" => 'suppliers#destroy'
+  patch "/suppliers/:id" => 'suppliers#update'
+  get "/suppliers/:id" => 'suppliers#show'
+  post "/search" => 'suppliers#search'
+
   post "/orders" => 'orders#create'
   get "/orders/:id" => 'orders#show'
 
